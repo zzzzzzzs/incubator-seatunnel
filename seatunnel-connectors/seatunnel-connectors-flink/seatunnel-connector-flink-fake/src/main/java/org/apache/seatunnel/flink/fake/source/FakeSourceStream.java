@@ -75,7 +75,7 @@ public class FakeSourceStream extends RichParallelSourceFunction<Row> implements
         Random random = new Random();
         while (running) {
             int randomNum = (int) (1 + Math.random() * NAME_ARRAY.length);
-            Row row = Row.of(NAME_ARRAY[randomNum - 1], (long) random.nextInt(AGE_LIMIT));
+            Row row = Row.of(NAME_ARRAY[randomNum - 1], (int) random.nextInt(AGE_LIMIT));
             ctx.collect(row);
             Thread.sleep(TimeUnit.SECONDS.toMillis(1));
         }
